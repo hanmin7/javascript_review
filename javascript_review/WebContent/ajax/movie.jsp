@@ -11,26 +11,26 @@
 		//박스오피스 조회
 		$("#btnList").on("click", loadDoc);
 		//영화상세정보조회  class가 movieCd인 .. table그룹이벤트사용 
-		$("result").on("click", "movieCd", loadInfo);
+		$("#result").on("click", ".movieCd", loadInfo);
 		
 	});
 	
 	// 영화코드에 해당하는 상세정보(감독, 배우, 상영시간)를 조회하여 div#info에 출력
 	function loadInfo(){
-		var dt = $("#name").val();
+		var dt = $(this).text();
+		console.log(dt);
 		var url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=430156241533f1d058c603178cc3ca0e&movieCd="
 		  	+ dt;
 		$.getJSON(url, function(obj){
-			var arr = obj.boxOfficeResult.dailyBoxOfficeList;
-			for(i=0; i<arr.length; i++){
-				var tr = $("<tr>").append(
-						$("<td>").text(arr[i].movieCd).addClass("movieCd"),
-						$("<td>").text(arr[i].movieNm));
-				$("#result").append(tr);
-			}
+			var actors = obj.movieInfoResult.movieInfo.actors[0].peopleNm;
+			var directors = obj.movieInfoResult.movieInfo.directors[0].peopleNm;
+			var showTm = obj.movieInfoResult.movieInfo.showTm;
+			
+			$("#info").append(actors + " , " + directors+ " , " + showTm);
 		});
 	}
-	
+
+
 	// 박스오피스 조회
 	function loadDoc(){
 		var dt = $("#name").val();
