@@ -10,17 +10,10 @@
 
 <script>
 	$(window).on("load", select);
-	function select(){
-		/* $("#tbl").on("click", altd);	
-			function altd(){
-				console.log($(this).parent().parent().html())
-				alert($(this).parent().parent().children().eq(0).html())
-						//$("#std").closest("tr").next().find("td").eq(0).html()
-						//event.target.parentNode.parentNode.getElementsByTagName("td")[0].innerHTM)
-			}; */
-			
-		$(this).on("click", function(){
-			alert($(this).closest("td").eq(0).html())
+	function select(){	
+		$("button").on("click", function(){
+			//console.log($(this).closest("tr").children().html())
+			alert($(this).closest("tr").children().eq(0).html())
 		});
 	};
 </script>

@@ -10,8 +10,13 @@
 	//tbody의 2열의 국어 성적의 합계를 계산하여 span 태그에 출력
 	$(window).on("load", sum);
 	function sum(){
-		var korSum = $("#tbl").
-		$("#kor").html();
+		var kors = $("tbody").children();
+		var korSum = 0;
+		for (i=0; i<kors.length; i++){
+			korSum += parseInt(kors.eq(i).children().eq(1).html())
+		}
+		
+		$("#kor").html(korSum);
 	}
 	
 	
