@@ -8,39 +8,38 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
-<!-- <style>
+<style>
 	img { width: 100px; 
 			top: 100px;
 			left: 100px; 
 			position: relative; }
-</style> -->
+</style>
 
 </head>
 <body>
-	<img src="./images/kakaor.png" id="img1">
+	<img src="../js/images/kakaor.png" id="img1">
 <script>
-$("#img1").style.left="100px";
-$("#img1").style.top="100px";
+$("#img1").css("left","100px");
+$("#img1").css("top","100px");
 
 
-	$(window).on("mousemove", movemouse);
-	
+	$(document).on("mousemove", movemouse);
 	function movemouse(){
-		$("#img1").style.left = event.clientX + "px";
-		$("#img1").style.top = event.clientY + "px";
+		$("#img1").css("left", event.clientX + "px");
+		$("#img1").css("top", event.clientY + "px");
 	};
 			
 			
-	$(window).on("keydown", function() {
+	$(document).on("keydown", function() {
 		//console.log(event.keyCode);
 		if (event.keyCode == 37) {
-			$("#img1").style.left = ( parseInt($("#img1").style.left) - 10 ) + "px";
+			$("#img1").css("left", ( parseInt($("#img1").css("left")) - 10 ) + "px" );
 		} else if (event.keyCode == 39) {
-			$("#img1").style.left = ( parseInt($("#img1").style.left) + 10 ) + "px";
+			$("#img1").css("left", ( parseInt($("#img1").css("left")) + 10 ) + "px" );
 		} else if (event.keyCode == 40) {
-			$("#img1").style.top = ( parseInt($("#img1").style.top) + 10 ) + "px";
+			$("#img1").css("top", ( parseInt($("#img1").css("top")) + 10 ) + "px" );
 		} else if (event.keyCode == 38) {
-			$("#img1").style.top = ( parseInt($("#img1").style.top) - 10 ) + "px";
+			$("#img1").css("top", ( parseInt($("#img1").css("top")) - 10 ) + "px" );
 		}
 	});
 </script>

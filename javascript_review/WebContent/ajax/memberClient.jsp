@@ -27,7 +27,34 @@ span {display : inline-block;
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script>
 	//버튼 클릭 이벤트 작성
-
+	$(function(){
+		$(".col:first").on("click", "button", function(){
+			var url = "./server/" + $(this).parent().children().eq(0).text() + ".json";
+			$.getJSON(url, function(obj){
+				$("#id").val(obj.id);
+				$("#pw").val(obj.pw);
+				$("[name='gender']").val([obj.gender]);
+				$("#job").val(obj.job);
+				$("#reason").val(obj.reason);
+				$("[name='mailyn']").val([obj.mailyn]);		
+				
+			}); //getJSON
+			
+		}); //조회버튼클릭이벤트
+		
+		$("button:contains('삭제')").on("click", function(){
+			$("span:contains('"+ $("#id").val() +"')").parent().remove();
+			$("#id").val("");
+			$("#pw").val("");
+			$("[name='gender']").val([""]);
+			$("#job").val("");
+			$("#reason").val("");
+			$("[name='mailyn']").val([""]);	
+		})
+		
+	});
+	
+	
 </script>
 </head>
 <body>
