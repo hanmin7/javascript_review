@@ -50,7 +50,7 @@ span {display : inline-block;
 			$("#job").val("");
 			$("#reason").val("");
 			$("[name='mailyn']").val([""]);	
-		})
+		}); //삭제버튼클릭이벤트
 		
 	});
 	

@@ -26,9 +26,9 @@
 			var directors = obj.movieInfoResult.movieInfo.directors[0].peopleNm;
 			var showTm = obj.movieInfoResult.movieInfo.showTm;
 			
-			$("#info").append(actors + " , " + directors+ " , " + showTm);
+			$("#info").append(actors + " , " + directors+ " , " + showTm + " ");
 		});
-	}
+	}  //중복안일어나게 해보기~~
 
 
 	// 박스오피스 조회
